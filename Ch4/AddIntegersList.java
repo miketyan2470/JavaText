@@ -2,7 +2,7 @@
  * File AddIntegersList.java
  * -------------------------
  * Program takes user entered integers and continues to add to total 
- * until user ends loop by entering "0".
+ * until user ends loop by entering "0" as the SENTINEL.
  */
 
 package javaCh4;
