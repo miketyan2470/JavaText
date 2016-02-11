@@ -73,7 +73,7 @@ public class MathQuiz extends ConsoleProgram {
 		while (true) {
 			// Checks if answer is correct.
 			if (answer == input) {
-				println("That's correct! - Good Job!");
+				println(getRemark());
 				score++;
 				println();
 				break;
@@ -85,5 +85,15 @@ public class MathQuiz extends ConsoleProgram {
 				break;
 			}
 		}	
+	}
+	
+	private String getRemark() {
+		switch (rgen.nextInt(1, 5)) {
+			case 1: return "That's right!";
+			case 2: return "Awesome answer!";
+			case 3: return "Great job!";
+			case 4: return "This is too easy for you!";
+			default: return "Congrats! You're right!";
+		}
 	}
 }
