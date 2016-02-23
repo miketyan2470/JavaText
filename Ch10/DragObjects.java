@@ -1,7 +1,9 @@
 package javaCh10;
 
 import acm.program.*;
+import acm.util.RandomGenerator;
 import acm.graphics.*;
+
 import java.awt.event.*;
 import java.awt.*;
 /**
@@ -10,9 +12,11 @@ import java.awt.*;
  * Graphics program that allows user to move objects by dragging with mouse clicks.
  */
 public class DragObjects extends GraphicsProgram {
-	// Private instance variables.
+
 	private GObject gobj;
 	private GPoint last;
+	
+	private RandomGenerator rgen = RandomGenerator.getInstance();
 	/*
 	 * Initializes program with GRect and GOval added onto canvas.
 	 * Initializes listeners for mouse events. (non-Javadoc)
@@ -28,6 +32,7 @@ public class DragObjects extends GraphicsProgram {
 		oval.setColor(Color.GREEN);
 		add(oval);
 		addMouseListeners();
+		addKeyListeners();
 	}
 	/*
 	 * Called on mouse press to record the current coordinates. (non-Javadoc)
@@ -53,5 +58,14 @@ public class DragObjects extends GraphicsProgram {
 	 */
 	public void mouseClicked(MouseEvent e) {
 		if (gobj != null) gobj.sendToFront();
+	}
+	/*
+	 * Called on key press to change color that is generated randomly. (non-Javadoc)
+	 * @see acm.program.Program#keyTyped(java.awt.event.KeyEvent)
+	 */
+	public void keyTyped(KeyEvent e) {
+		if (gobj != null) {
+			gobj.setColor(rgen.nextColor());
+		}
 	}
 }
