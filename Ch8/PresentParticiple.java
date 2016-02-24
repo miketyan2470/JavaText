@@ -1,9 +1,18 @@
 package javaCh8;
 
 import acm.program.*;
-
+/**
+ * File : PresentParticiple.java
+ * -----------------------------
+ * Console program determines which method to use in order to return the input as
+ * a present participle. 
+ * -If word ends in an 'e' preceded by a consonant, the 'e' is removed before adding
+ * 	'ing' suffix.
+ * -If word ends in consonant preceded by a vowel, the last letter is repeated before
+ *	adding the 'ing' suffix.
+ */
 public class PresentParticiple extends ConsoleProgram {
-	
+	// Private constants used to test different scenarios.
 	private static final String TEST1 = "move";
 	private static final String TEST2 = "see";
 	private static final String TEST3 = "jam";
@@ -17,7 +26,11 @@ public class PresentParticiple extends ConsoleProgram {
 		println(createPresentParticiple(TEST4));
 		println(createPresentParticiple(TEST5));
 	}
-	
+	/**
+	 * Changes string 'test' into present participle.
+	 * @param test String that will be evaluated.
+	 * @return Returns String that is the correct usage of it's present participle.
+	 */
 	private String createPresentParticiple(String test) {
 		String word = test.toLowerCase();
 		int index = test.length();
@@ -33,14 +46,22 @@ public class PresentParticiple extends ConsoleProgram {
 		}
 		return word;
 	}
-	
+	/**
+	 * Determines if character is a consonant.
+	 * @param ch Character to be compared.
+	 * @return Returns true if character is not within listed vowels in switch statement.
+	 */
 	private boolean isConsonant(char ch) {
 		switch(ch) {
 			case 'a' : case 'e' : case 'i' : case 'o' : case 'u' : return false;
 			default : return true;
 		}
 	}
-	
+	/**
+	 * Determines if character is a vowel.
+	 * @param ch Character to be compared.
+	 * @return Returns true if character is listed as a vowel, otherwise returns false.
+	 */
 	private boolean isVowel(char ch) {
 		switch(ch) {
 			case 'a' : case 'e' : case 'i' : case 'o' : case 'u' : return true;
